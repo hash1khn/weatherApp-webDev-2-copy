@@ -1,0 +1,24 @@
+{{> welcome-menu active="login"}}
+
+<section class="section">
+    <h1 class="title">Log in</h1>
+      <!-- Error Message Display -->
+  {{#if errorMessage}}
+  <div class="notification is-danger">
+    {{errorMessage}}
+  </div>
+  {{/if}}
+    <form action="/authenticate" method="POST">
+        <div class="field">
+            <label class="label">Email</label>
+            <input type="text" class="input" placeholder="Enter Email" name="email">
+        </div>
+        <div class="field">
+            <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Enter Password" name="password">
+        </div>
+        <div class="field is-grouped">
+            <button class="button is-link">Login</button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,55 @@
+<section class="section">
+  <h1 class="title">{{station.title}}</h1>
+  <p>Latitude: {{station.latitude}}</p>
+  <p>Longitude: {{station.longitude}}</p>
+
+  <!-- Display Max/Min values if reports exist -->
+  {{#if reports.length}}
+  <div class="box">
+    <p><strong>Max Temperature:</strong> {{maxTemp}} °C</p>
+    <p><strong>Min Temperature:</strong> {{minTemp}} °C</p>
+    <p><strong>Max Wind Speed:</strong> {{maxWindSpeed}} km/h</p>
+    <p><strong>Min Wind Speed:</strong> {{minWindSpeed}} km/h</p>
+    <p><strong>Max Pressure:</strong> {{maxPressure}} hPa</p>
+    <p><strong>Min Pressure:</strong> {{minPressure}} hPa</p>
+  </div>
+
+  <!-- List Reports Section -->
+  <h2 id="reports" class="subtitle">Weather Reports</h2>
+  <table class="table is-fullwidth is-bordered">
+    <thead>
+      <tr class="has-background-light">
+        <th>Code</th>
+        <th>Icon</th>
+        <th>Temp</th>
+        <th>Wind Speed</th>
+        <th>Wind Direction</th>
+        <th>Pressure</th>
+      </tr>        
+    </thead>
+    <tbody>
+      {{#each reports}}
+      <tr>
+        <td>{{code}}</td>
+        <td><img src="http://openweathermap.org/img/wn/{{code}}@2x.png" alt="Weather Icon"></td>
+        <td>{{temperature}} °C</td>
+        <td>{{windSpeed}} km/h</td>
+        <td>{{windDirection}}°</td>
+        <td>{{pressure}} hPa</td>
+        <td>
+          <a class="tag is-link is-light" href="/station/{{../station._id}}/deletereport/{{_id}}" class="button">
+            Delete
+          </a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <p>No reports available for this station.</p>
+  {{/if}}
+
+  <!-- Add Report Form Section -->
+  <h2 id="add-report" class="subtitle">Add New Report</h2>
+  {{> add-report}}
+</section>

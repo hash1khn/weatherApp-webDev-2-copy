@@ -1,0 +1,27 @@
+{{#each stations}}
+<div class="box box-link-hover-shadow">
+  <h2 class="title">{{title}}</h2>
+  <h3 class="subtitle">Lat: {{latitude}}</h3>
+  <h3 class="subtitle">Lng: {{longitude}}</h3>
+  
+  <!-- Open Station Button -->
+  <a class="tag is-link is-light" href="/station/{{_id}}">
+    Open Station
+  </a>
+  
+  <!-- Delete Station Button -->
+  <a class="tag is-link is-light" href="/dashboard/deletestation/{{_id}}" onclick="return confirm('Are you sure you want to delete this station?')">
+    Delete Station
+  </a>
+
+  <!-- List Reports Button -->
+  <a class="tag is-link is-light" href="/station/{{_id}}#reports">
+    List Reports
+  </a>
+
+  <!-- Add Report Button -->
+  <a class="tag is-link is-primary" href="/station/{{_id}}#add-report">
+    Add Report
+  </a>
+</div>
+{{/each}}

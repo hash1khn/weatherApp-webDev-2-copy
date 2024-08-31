@@ -1,0 +1,29 @@
+<table class="table is-fullwidth is-bordered">
+  <thead>
+    <tr class="has-background-light">
+      <th>Code</th>
+      <th>Icon</th>
+      <th>Temp</th>
+      <th>Wind Speed</th>
+      <th>Wind Direction</th>
+      <th>Pressure</th>
+    </tr>        
+  </thead>
+  <tbody>
+    {{#each reports}}
+    <tr>
+      <td>{{code}}</td>
+      <td><img src="http://openweathermap.org/img/wn/{{code}}@2x.png" alt="Weather Icon"></td>
+      <td>{{temperature}} °C</td>
+      <td>{{windSpeed}} km/h</td>
+      <td>{{windDirection}}°</td>
+      <td>{{pressure}} hPa</td>
+      <td>
+        <a class="tag is-link is-light" href="/station/{{../station._id}}/deletereport/{{_id}}" class="button">
+          {{> icons/delete}}
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
